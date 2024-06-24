@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luido.lt</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            perspective: 800px; /* Adds perspective to the 3D space */
+            background-color: #f0f0f0; /* Background color */
+        }
+        .link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .header {
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .cube-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .cube-container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d; /* Ensures the 3D transforms apply to child elements */
+            transform: rotateX(-45deg) rotateY(45deg); /* Initial rotation */
+            transition: transform 1s ease-out; /* Smooth transition */
+        }
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            color: #000; /* Text color */
+            pointer-events: none; /* Disable pointer events on cube faces */
+        }
+        .front {
+            transform: translateZ(100px);
+            background-color: green;
+        }
+        .back {
+            transform: rotateY(180deg) translateZ(100px);
+            background-color: green;
+        }
+        .right {
+            transform: rotateY(90deg) translateZ(100px);
+            background-color: blue;
+        }
+        .left {
+            transform: rotateY(-90deg) translateZ(100px);
+            background-color: blue;
+        }
+        .top {
+            transform: rotateX(90deg) translateZ(100px);
+            background-color: red;
+        }
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <style>
+      body {
+        background-color: #eeeeee;
+      }
+    </style>
+    <a class="link" href="https://www.linkedin.com/in/gernot-luidolt/" target="_blank">website in arbeit</a>
+    <div class="cube-wrapper">
+        <div class="cube-container" id="cube">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+    </div>
+
+    <script>
+        const cube = document.getElementById('cube');
+        let isMouseDown = false;
+        let startX, startY;
+        let currentX = 25, currentY = -20;
+        let velocityX = 0, velocityY = 0;
+        const friction = 0.9; // Friction factor to slow down rotation
+        const sensitivity = 0.3; // Adjust sensitivity here (higher value = more sensitive)
+        let autoRotate = true;
+
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('touchstart', handleTouchStart);
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('touchmove', handleTouchMove);
+        document.addEventListener('mouseup', handleMouseUp);
+        document.addEventListener('touchend', handleTouchEnd);
+
+        function handleMouseDown(event) {
+            isMouseDown = true;
+            startX = event.clientX;
+            startY = event.clientY;
+            autoRotate = false;
+        }
+
+        function handleTouchStart(event) {
+            isMouseDown = true;
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+            autoRotate = false;
+        }
+
+        function handleMouseMove(event) {
+            if (!isMouseDown) return;
+            const deltaX = event.clientX - startX;
+            const deltaY = event.clientY - startY;
+            currentX += deltaX * sensitivity; // Adjust sensitivity
+            currentY -= deltaY * sensitivity; // Invert Y-axis
+            cube.style.transform = `rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+            startX = event.clientX;
+            startY = event.clientY;
+        }
+
+        function handleTouchMove(event) {
+            if (!isMouseDown) return;
+            const deltaX = event.touches[0].clientX - startX;
+            const deltaY = event.touches[0].clientY - startY;
+            currentX += deltaX * sensitivity; // Adjust sensitivity
+            currentY -= deltaY * sensitivity; // Invert Y-axis
+            cube.style.transform = `rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+        }
+
+        function handleMouseUp() {
+            if (isMouseDown) {
+                isMouseDown = false;
+                applyMomentum();
+                autoRotate = true;
+            }
+        }
+
+        function handleTouchEnd() {
+            if (isMouseDown) {
+                isMouseDown = false;
+                applyMomentum();
+                autoRotate = true;
+            }
+        }
+
+        function applyMomentum() {
+            // Apply velocity
+            currentX += velocityX;
+            currentY += velocityY;
+
+            // Apply friction
+            velocityX *= friction;
+            velocityY *= friction;
+
+            // Update cube rotation
+            cube.style.transform = `rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+
+            // Request animation frame
+            if (Math.abs(velocityX) > 0.01 || Math.abs(velocityY) > 0.01) {
+                requestAnimationFrame(applyMomentum);
+            }
+        }
+
+        function autoRotateCube() {
+            if (autoRotate) {
+                currentX += 0.5; // Adjust this value for desired rotation speed
+                currentY += 0.0; // Adjust this value for desired rotation speed
+                cube.style.transform = `rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+            }
+            requestAnimationFrame(autoRotateCube);
+        }
+
+        autoRotateCube();
+    </script>
+</body>
+</html>

@@ -34,7 +34,7 @@ p{
     margin-bottom: 0.5rem;
 }
 
-ul{
+#impressum{
     list-style: none;
 }
 
@@ -57,4 +57,11 @@ footer ul {
 
 footer li {
     display: flex;
+}
+
+@media (min-width: 600px) {
+    #impressum{
+        position:absolute; 
+        right: 10px; top: 0px;
+    }
 }

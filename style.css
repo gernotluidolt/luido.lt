@@ -34,6 +34,10 @@ p{
     margin-bottom: 0.5rem;
 }
 
+ul{
+    list-style: none;
+}
+
 footer {
     display: flex;
     gap: 1rem;

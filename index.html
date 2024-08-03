@@ -7,7 +7,7 @@
     <title>Gernot Luidolt</title>
     <script>
         function loadFooter() {
-            fetch('footer.html')
+            fetch('./footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer').innerHTML = data;
@@ -20,7 +20,7 @@
     <h1>main</h1>
 
     <div class="main-content">
-        <a class="navigation" href="./pages/about.html">About</a>
+        <a class="navigation" href="./about.html">About</a>
         <p>
             This website is currently still under construction.
         </p>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" href="./style.css"/>
     <title>About</title>
     <script>
         function loadFooter() {
-            fetch('../footer.html')
+            fetch('./footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer').innerHTML = data;
@@ -20,7 +20,7 @@
     <h1>about</h1>
 
     <div class="main-content">
-        <a class="navigation" href="../index.html"><< back</a>
+        <a class="navigation" href="./index.html"><< back</a>
         <p>
             Gernot Luidolt is a BIM Technician and Software Developer based in Vienna, Austria.
             With a strong background in construction technology and software engineering, he has developed a diverse skill set focusing on creating innovative solutions for the construction industry. 

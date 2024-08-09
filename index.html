@@ -4,28 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css"/>
-    <title>Gernot Luidolt</title>
+    <title>GERNOT LUIDOLT</title>
     <script>
-        function loadFooter() {
+        function loadfiles() {
+            fetch('./header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
             fetch('./footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer').innerHTML = data;
                 });
         }
-        window.onload = loadFooter;
+
+        window.onload = loadfiles;
     </script>
 </head>
 <body>
-    <h1>main</h1>
-
-    <div class="main-content">
-        <a class="navigation" href="./about.html">About</a>
-        <p style="font-style: italic;">
-            This website is currently still under construction.
-        </p>
+    <div class="navigation" id="header"></div>
+    
+    <div class="content-area">
+        <div class="content-slot">
+            <div class="content">
+                <img src="./assets/IMG_9609.JPG" alt="Under Construction Image"/>
+                <p style="font-style: italic">
+                    This website is currently still under construction.
+                </p>
+            </div>
+        </div>
+        <div class="content-slot">
+            <div class="content">
+                <p style="font-style: italic">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet..
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="footer" id="footer"></div>
+    <div class="navigation" id="footer"></div>
 </body>
 </html>

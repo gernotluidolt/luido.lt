@@ -1,0 +1,53 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.rectangle {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    border-radius: 10px;
+    background-color: steelblue;
+    transition: transform 1s ease-in-out;
+}
+
+#rect1 {
+    background-color: steelblue;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#rect2 {
+    background-color: tomato;
+    bottom: 0;
+    left: 100px;
+    z-index: 1;
+}
+
+.moveUp{
+
+}
+
+.moveRight{
+
+}
+
+.moveDown{
+
+}
+
+.moveLeft{
+    
+}

@@ -3,46 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="./styles.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>ABOUT</title>
-    <script>
-        function loadfiles() {
-            fetch('./header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header').innerHTML = data;
-                });
-                
-            fetch('./footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer').innerHTML = data;
-                });
-        }
-
-        window.onload = loadfiles;
-    </script>
 </head>
 <body>
-    <div class="header" id="header"></div>
+    <div class="navigation" id="header"></div>
+    <img src="./assets/1651317517876.png" id="headshot"/>
 
     <div class="content-area">
         <div class="content-slot">
-            <img src="./assets/1651317517876.png" id="headshot"/>
-    
-            <p>
-                Gernot Luidolt is a BIM Technician and Software Developer based in Vienna, Austria. <br/>
-                With a strong background in construction technology and software engineering, he has developed a diverse skill set focusing on creating innovative solutions for the construction industry. 
-                His commitment to excellence is reflected in his continuous pursuit of education and professional development. <br/>
-    
-            </p>
+            <div class="content">
+                <p>
+                    Gernot Luidolt is a BIM Technician and Software Developer based in Vienna, Austria. <br/>
+                    With a strong background in construction technology and software engineering, he has developed a diverse skill set focusing on creating innovative solutions for the construction industry. 
+                    His commitment to excellence is reflected in his continuous pursuit of education and professional development. <br/>
+        
+                    <!-- TODO: add future aspirations and current occupation -->
+                </p>
+            </div>
         </div>
     </div>
 
 
-    <div class="footer" id="footer"></div>
+    <div class="navigation" id="footer"></div>
+    <script src="./scripts/headerfooter.js"></script>
 </body>
 </html>

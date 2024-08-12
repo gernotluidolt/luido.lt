@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="./styles.css"/>
     <title>PORTFOLIO</title>
-    <script>
-        function loadfiles() {
-            fetch('./header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header').innerHTML = data;
-                });
-                
-            fetch('./footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer').innerHTML = data;
-                });
-        }
 
-        window.onload = loadfiles;
-    </script>
 </head>
 <body>
     <div class="header" id="header"></div>
 
-    <div class="main-content">
-        <p>
-            this is my portfolio
-        </p>
+    <div class="content-area">
+        <div class="content-slot">
+            <p>
+                this is my portfolio
+            </p>
+        </div>
+        <div class="content-slot">
+            <ul>
+                <li>swiedesky</li>
+                    <ul>
+                        <li>embedded c++</li>
+                        <li>platform IO</li>
+                        <li>3d model and print</li>
+                    </ul>
+                <li>revit examples</li>
+                    <ul>
+                        <li>c# plugin</li>
+                        <li>modeless wpf</li>
+                        <li>revit api</li>
+                    </ul>
+                <li>three.js</li>
+                <li>open company</li>
+                <li>visualize sort algo</li>
+                <ul>
+                    <li>bogo</li>
+                    <li>bubble</li>
+                    <li>selection</li>
+                    <li>insertion</li>
+                    <li>shell</li>
+                </ul>
+            </ul>
+        </div>
     </div>
 
     <div class="footer" id="footer"></div>
+    <script src="./scripts/headerfooter.js"></script>
 </body>
 </html>

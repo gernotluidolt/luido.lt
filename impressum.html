@@ -3,31 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="./styles.css"/>
     <title>IMPRESSUM</title>
-    <script>
-        function loadFooter() {
-            fetch('./footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer').innerHTML = data;
-                });
-        }
-        window.onload = loadFooter;
-    </script>
 </head>
 <body>
     <h1>Impressum</h1>
 
     <div class="main-content">
-        <a class="navigation" href="./index.html"><< back</a>
+
         <ul id="impressum">
             <li>Gernot Luidolt</li>
             <li>Schönbrunner Straße 293/8/11</li>
             <li>1120 Wien</li>
         </ul>
+        
     </div>
 
     <div class="footer" id="footer"></div>
+    <script src="./scripts/headerfooter.js"></script>
 </body>
 </html>

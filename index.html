@@ -3,25 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="./styles.css"/>
     <title>GERNOT LUIDOLT</title>
-    <script>
-        function loadfiles() {
-            fetch('./header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header').innerHTML = data;
-                });
-
-            fetch('./footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer').innerHTML = data;
-                });
-        }
-
-        window.onload = loadfiles;
-    </script>
 </head>
 <body>
     <div class="navigation" id="header"></div>
@@ -29,7 +13,7 @@
     <div class="content-area">
         <div class="content-slot">
             <div class="content">
-                <!-- <img src="./assets/IMG_9609.JPG" alt="Under Construction Image"/> -->
+                <img class="media" src="./assets/IMG_9609.JPG" alt="Under Construction Image"/>
                 <p style="font-style: italic">
                     This website is currently still under construction.
                 </p>
@@ -37,13 +21,16 @@
         </div>
         <div class="content-slot">
             <div class="content">
+                <iframe class="media" src="https://gernotluidolt.github.io/index_animation/">Hello</iframe>
                 <p style="font-style: italic">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet..
+                    I could show off a interesting three.js project like this maybe.
                 </p>
             </div>
         </div>
     </div>
 
     <div class="navigation" id="footer"></div>
+
+    <script src="./scripts/headerfooter.js"></script>
 </body>
 </html>

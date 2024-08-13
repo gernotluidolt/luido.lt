@@ -109,7 +109,7 @@ footer, header {
 button {
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 130px;
+    padding: 0.5rem;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.2rem;
     border-radius: 1.2rem;

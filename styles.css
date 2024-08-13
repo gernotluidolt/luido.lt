@@ -1,10 +1,12 @@
 body, html {
     height: 100vh;
     color: #101010;
+    background-color: lightg;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    overflow-x: hidden;
 }
 
 h1{
@@ -23,35 +25,17 @@ h2{
 }
 
 .content-area{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 3rem;
-    margin: 1rem;
+    align-self: center;
+    padding: 1rem;
 }
 
-.content-slot {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
-}
-
-.content{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    max-width: 900px;
-}
-
-.content img{
-    min-width: 550px;
-}
-
-.content iframe{
-    min-width: 550px;
-    min-height: 400px;
+.content {
+    width: 100%;
+    max-width: 50em;
+    border-radius: 7px;
+    margin: 0 auto 2rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 
@@ -65,18 +49,24 @@ h2{
     border-radius: 10px;
 }
 
-p{
-    max-width: 40em;
+p {
     min-width: 250px;
-    text-align:justify;
+    text-align: justify;
     margin: 0;
     line-height: 1.5rem;
+    box-sizing: border-box;
 }
 
 
-.content img{
+.content img, .content iframe {
     width: 100%;
     border-radius: 7px;
+    box-sizing: border-box;
+}
+
+.content iframe{
+
+    height: 400px;
 }
 
 #impressum{
@@ -84,17 +74,13 @@ p{
 }
 
 footer, header {
+    background-color: lig;
     display: flex;
     gap: 1rem;
     flex-direction: row;
     list-style: none;
     justify-content: center;
-    margin: 1rem;
-}
-
-header{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 1.3rem;
+    padding: 1rem;
 }
 
 @media (min-width: 600px) {
@@ -114,8 +100,24 @@ header{
 
 .error{
     font-size: 10rem;
-    mar: 3rem;
+    margin: 3rem;
     color: white;
     text-align:justify;
     line-height:normal;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 130px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 1.2rem;
+    border-style: dotted;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
 }

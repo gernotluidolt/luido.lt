@@ -20,7 +20,7 @@ h2{
     font-size: 1.2rem;
     font-weight: 900;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #707070;
+    color: #202020;
     margin: 0.5rem 0 0.5rem 0;
 }
 
@@ -58,7 +58,7 @@ p {
 }
 
 
-.content img, .content iframe {
+.content img, .content iframe, .content video {
     width: 100%;
     border-radius: 7px;
     box-sizing: border-box;
@@ -69,12 +69,30 @@ p {
     height: 400px;
 }
 
+.techstack {
+    margin-top: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.techstack li {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 5px 10px;
+    list-style: none;
+}
+
+
 #impressum{
     list-style: none;
 }
 
 footer, header {
-    background-color: lig;
     display: flex;
     gap: 1rem;
     flex-direction: row;
@@ -89,8 +107,6 @@ footer, header {
         right: 10px; top: 0px;
     }
 }
-
-
 
 @media (max-height: 770px) {
     #headshot{

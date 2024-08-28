@@ -1,78 +1,105 @@
+/* Base Styles */
 body, html {
     height: 100vh;
-    color: #101010;
-    background-color: lightg;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
     overflow-x: hidden;
+    font-family: Merriweather, sans-serif;
+    font-weight: 400;
+    color: #101010;
+    background-color: whitesmoke;
 }
 
-h1{
-    font-size: 1.7rem;
+h1, h2 {
     font-weight: 900;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 0.5rem 0 0.5rem 0;
-}
-
-h2{
-    font-size: 1.2rem;
-    font-weight: 900;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "Bebas Neue", 'Arial Narrow Bold', sans-serif;
     color: #202020;
-    margin: 0.5rem 0 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
-.content-area{
-    align-self: center;
-    padding: 1rem;
+h1 {
+    font-size: 2.5rem;
 }
 
-.content {
-    width: 100%;
-    max-width: 50em;
-    border-radius: 7px;
-    margin: 0 auto 2rem auto;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-
-#headshot{
-    width: 150px; 
-    float: right; 
-    rotate: -3deg; 
-    position: absolute; 
-    left: 10%; 
-    top: 5rem;
-    border-radius: 10px;
+h2 {
+    font-size: 2.2rem;
 }
 
 p {
     min-width: 250px;
     text-align: justify;
     margin: 0;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
+    color: #202020;
     box-sizing: border-box;
 }
 
+ul {
+    margin: 0.5rem;
+    padding: 0;
+}
 
-.content img, .content iframe, .content video {
+/* Button Styles */
+button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0.5rem;
+    font-family: "Bebas Neue", 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 7px;
+    border-style: dotted;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #202020;
+    color: whitesmoke;
+}
+
+/* Layout and Structure */
+.content-area {
+    align-self: center;
+}
+
+.content {
     width: 100%;
+    max-width: 50em;
+    margin: 0 auto 1rem;
+    padding: 1rem;
     border-radius: 7px;
     box-sizing: border-box;
 }
 
-.content iframe{
+/* Media Elements */
+.content img, .content iframe, .content video {
+    width: 100%;
+    border-radius: 7px;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+}
 
+.content iframe {
     height: 400px;
 }
 
+/* Headshot Image */
+#headshot {
+    width: 150px;
+    position: absolute;
+    left: 10%;
+    top: 5rem;
+    rotate: -3deg;
+    border-radius: 10px;
+}
+
+/* Tech Stack Section */
 .techstack {
     margin-top: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 12px;
+    font-family: "Bebas Neue", 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2rem;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -82,58 +109,46 @@ p {
 .techstack li {
     background-color: #000000;
     color: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 7px;
     padding: 5px 10px;
     list-style: none;
 }
 
-
-#impressum{
+/* Header and Footer */
+header, footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
     list-style: none;
 }
 
-footer, header {
-    display: flex;
-    gap: 1rem;
-    flex-direction: row;
+/* Impressum */
+#impressum {
     list-style: none;
-    justify-content: center;
-    padding: 1rem;
 }
 
 @media (min-width: 600px) {
-    #impressum{
-        position:absolute; 
-        right: 10px; top: 0px;
+    #impressum {
+        position: absolute;
+        right: 10px;
+        top: 0;
     }
 }
 
-@media (max-height: 770px) {
-    #headshot{
-        visibility: hidden;
-    }
-}
-
-.error{
+/* Error Page Styling */
+.error {
     font-size: 10rem;
     margin: 3rem;
     color: white;
-    text-align:justify;
-    line-height:normal;
+    text-align: justify;
+    line-height: normal;
 }
 
-button {
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 0.5rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 1.2rem;
-    border-radius: 1.2rem;
-    border-style: dotted;
-    box-sizing: border-box;
-}
 
-button:hover {
-    background-color: black;
-    color: white;
+/* Media Queries */
+@media (max-height: 800px) {
+    #headshot {
+        visibility: hidden;
+    }
 }

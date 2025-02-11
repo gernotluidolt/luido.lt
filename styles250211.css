@@ -61,6 +61,7 @@ button:hover {
 
 .active-button {
     border-style: solid;
+    background-color: #ffffff;
 }
 
 /* Layout and Structure */

@@ -59,6 +59,10 @@ button:hover {
     color: whitesmoke;
 }
 
+.active-button {
+    border-style: solid;
+}
+
 /* Layout and Structure */
 .content-area {
     align-self: center;
@@ -71,7 +75,7 @@ button:hover {
     padding: 1rem;
     border-radius: 7px;
     box-sizing: border-box;
-}
+    background-color: #ffffff;}
 
 /* Media Elements */
 .content img, .content iframe, .content video {

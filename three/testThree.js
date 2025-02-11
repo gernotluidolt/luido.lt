@@ -1,20 +1,30 @@
 //import * as THREE from 'https://unpkg.com/three@0.152.0/build/three.module.js';
 
+var angle = 0;
+
 function init(){
-    // Set up the scene, basically the world
     var scene = new THREE.Scene();
-    var gui = new dat.GUI();
+    scene.background = new THREE.Color(0x19a8dc);
 
     var enableFog = false;
 
     if (enableFog){
-        scene.fog = new THREE.FogExp2(0xFFFFFF, 0.2)
+        scene.fog = new THREE.FogExp2(0xccccff, 0.05);
     }
     
     var box = getBox(1,1,1)
-    var plane =getPlane(20);
 
-    plane.name = "plane1"
+    var plane = getPlane(20);
+    plane.name = "plane1";
+    plane.rotation.x = Math.PI / 2;
+
+    var textureLoader = new THREE.TextureLoader();
+    textureLoader.load('../assets/green-grass-texture.jpg', function (texture) {
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(5, 5);
+        plane.material.map = texture;
+        plane.material.needsUpdate = true;
+    });
 
     box.position.y = box.geometry.parameters.height/2;
     plane.rotation.x = Math.PI/2;
@@ -24,17 +34,18 @@ function init(){
     var lightbulb = getSphere(0.05);
     light.add(lightbulb);
     light.position.y = 2;
+    light.position.x = 2;
+    light.position.z = 1;
 
-    gui.add(light, "intensity", 0,10);
-    gui.add(light.position, "y", box.geometry.parameters.height,5);
-    gui.add(light.position, "x", -5,5);
-    gui.add(light.position, "z", -5,5);
+    var sunLight = new THREE.DirectionalLight(0xffffff, 1);
+    sunLight.position.set(5, 10, 7.5);
+    sunLight.castShadow = true;
+    scene.add(sunLight);
 
     scene.add(box);
     scene.add(plane);
     scene.add(light);
 
-    // Set up camera
     var camera = new THREE.PerspectiveCamera(
         45,
         window.innerWidth/window.innerHeight,
@@ -48,13 +59,11 @@ function init(){
 
     camera.lookAt(new THREE.Vector3(0,0,0));
 
-    // renderer to convert 3d data into 2d image
     var renderer = new THREE.WebGLRenderer();
     renderer.shadowMap.enabled = true;
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor("rgb(255,255,255)");
 
-    // embed renderer in DOM
     document.getElementById("webgl").appendChild(renderer.domElement);
 
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -67,8 +76,10 @@ function init(){
 function getBox(w, h, d){
     var geometry = new THREE.BoxGeometry(w,h,d);
     var material = new THREE.MeshPhongMaterial({
-        color: "rgb(120,120,120)"
+        color: "rgb(157, 77, 179)"
     });
+
+
 
     var mesh = new THREE.Mesh(
         geometry,
@@ -119,18 +130,23 @@ function getPointLight(intensity){
 
 
 function update(renderer, scene, camera, controls){
-    renderer.render(
-        scene,
-        camera
-    );
+    angle += 0.01;
+    var radius = 2;
+    var light = scene.children.find(obj => obj.type === "PointLight");
 
+    if (light) {
+        light.position.x = radius * Math.cos(angle);
+        light.position.z = radius * Math.sin(angle);
+    }
+
+    renderer.render(scene, camera);
     controls.update();
 
-    
     requestAnimationFrame(function(){
         update(renderer, scene, camera, controls);
-    })
+    });
 }
+
 
 window.addEventListener('resize', function() {
  renderer.setSize(window.innerWidth, window.innerHeight);

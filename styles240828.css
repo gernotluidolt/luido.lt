@@ -128,6 +128,17 @@ header, footer {
     list-style: none;
 }
 
+.media {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+.media img {
+    height: auto; 
+    object-fit: contain; 
+}
+
 @media (min-width: 600px) {
     #impressum {
         position: absolute;

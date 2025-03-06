@@ -76,7 +76,8 @@ button:hover {
     padding: 1rem;
     border-radius: 7px;
     box-sizing: border-box;
-    background-color: #ffffff;}
+    background-color: #efefef;
+}
 
 /* Media Elements */
 .content img, .content iframe, .content video {
